@@ -1,0 +1,50 @@
+image: steveblackburn/comp1110-2020-s2-gitlab-ci:0.1.1
+
+stages:
+  - build
+  - test
+
+before_script:
+  - export CP=src:/labtest/comp1110-labtest.jar:/labtest/hamcrest-core-1.3.jar:/labtest/junit-4.12.jar
+
+build:
+  tags:
+    - comp1110
+  stage: build
+  script:
+    - javac -encoding ISO-8859-1 $JAVAFX_OPTIONS -cp $CP src/comp1110/labtest/*/*.java
+  artifacts:
+    paths:
+      - src/comp1110/labtest/*/*.class
+
+Q1:
+  tags:
+    - comp1110
+  stage: test
+  script:
+    - java $JAVAFX_OPTIONS -cp $CP org.junit.runner.JUnitCore comp1110.labtest.HelloWorldTest
+
+Q2:
+  tags:
+    - comp1110
+  stage: test
+  script:
+    - java $JAVAFX_OPTIONS -cp $CP org.junit.runner.JUnitCore comp1110.labtest.SquareTest
+  
+Q3:
+  tags:
+    - comp1110
+  stage: test
+  script:
+    - java $JAVAFX_OPTIONS -cp $CP org.junit.runner.JUnitCore comp1110.labtest.GradeTest
+  
+Q4:
+  tags:
+    - comp1110
+  stage: test
+  script:
+    - java $JAVAFX_OPTIONS -cp $CP org.junit.runner.JUnitCore comp1110.labtest.PermuteTest
+  
+## Local Variables:
+## mode: yaml
+## End:

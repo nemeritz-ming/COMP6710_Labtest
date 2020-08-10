@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="comp1110-labtest">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/comp1110-labtest.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
